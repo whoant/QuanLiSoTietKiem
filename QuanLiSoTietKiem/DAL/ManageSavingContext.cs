@@ -18,5 +18,17 @@ namespace QuanLiSoTietKiem.DAL
 
         public DbSet<SavingBook> SavingBooks { get; set; }
 
+        public DbSet<Interest> Interests { get; set; }
+
+        public DbSet<Period> Periods { get; set; }
+
+        public DbSet<Staff> Staffs { get; set; }
+
+        public DbSet<Office> Offices { get; set; }
+
+        public DbSet<FormCreate> FormCreates { get; set; }
+
+        public DbSet<FormClose> FormCloses { get; set; }
+
     }
 }
