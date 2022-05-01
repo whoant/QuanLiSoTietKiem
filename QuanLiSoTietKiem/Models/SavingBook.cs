@@ -12,9 +12,9 @@ namespace QuanLiSoTietKiem.Models
     {
         public int ID { get; set; }
 
-        public long Deposit { get; set; }
+        public long DepositAmount { get; set; }
 
-        public long Interest { get; set; }
+        public long InterestAmount { get; set; }
 
         public TypeSavingBook Type { get; set; }
 
@@ -31,6 +31,11 @@ namespace QuanLiSoTietKiem.Models
         public int CustomerId { get; set; }
 
         public Customer Customer { get; set; }
+
+        [ForeignKey("Interest")]
+        public int InterestId { get; set; }
+
+        public Interest Interest { get; set; }
 
     }
 
