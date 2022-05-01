@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,7 @@ namespace QuanLiSoTietKiem.Models
 
         public string IdentityNumber { get; set; }
 
+        [DefaultValue(0)]
         public long Balance { get; set; }
 
         public string Address { get; set; }
