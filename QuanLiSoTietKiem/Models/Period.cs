@@ -6,7 +6,7 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class Period
+    public class Period : BaseEntity
     {
         public int ID { get; set; }
 
@@ -16,6 +16,6 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Tháng")]
         public int Month { get; set; }
 
-        public ICollection<Interest> Interests { get; set; }
+        public virtual ICollection<Interest> Interests { get; set; }
     }
 }

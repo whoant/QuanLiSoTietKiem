@@ -6,7 +6,7 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class Office
+    public class Office : BaseEntity
     {
         public int ID { get; set; }
 
@@ -15,6 +15,6 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Tên chức vụ")]
         public string Name { get; set; }
 
-        public ICollection<Staff> Staffs { get; set; }
+        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

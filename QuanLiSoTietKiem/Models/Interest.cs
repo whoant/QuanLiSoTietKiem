@@ -7,7 +7,7 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class Interest
+    public class Interest : BaseEntity
     {
         public int ID { get; set; }
 
@@ -17,7 +17,7 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Hệ số lãi suất")]
         public double Factor { get; set; }
 
-        public DateTime createdAt { get; set; }
+        public DateTime EffectedAt { get; set; }
 
         [ForeignKey("Period")]
         public int PeriodID { get; set; }

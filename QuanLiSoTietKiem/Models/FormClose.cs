@@ -7,22 +7,22 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class FormClose
+    public class FormClose : BaseEntity
     {
         [Key]
         [Column(Order = 1)]
         [ForeignKey("SavingBook")]
         public int SavingBookId { get; set; }
 
+        public virtual SavingBook SavingBook { get; set; }
+
         [Key]
         [Column(Order = 2)]
         [ForeignKey("Staff")]
         public int StaffId { get; set; }
 
-        public SavingBook SavingBook { get; set; }
+        public virtual Staff Staff { get; set; }
 
-        public Staff Staff { get; set; }
-
-        public DateTime CreatedAt { get; set; }
+        public DateTime EffectedAt { get; set; }
     }
 }

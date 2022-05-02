@@ -8,12 +8,14 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class SavingBook
+    public class SavingBook : BaseEntity
     {
         public int ID { get; set; }
 
+        [Display(Name = "Số tiền gửi")]
         public long DepositAmount { get; set; }
 
+        [Display(Name = "Số tiền lãi")]
         public long InterestAmount { get; set; }
 
         public TypeSavingBook Type { get; set; }
@@ -21,7 +23,7 @@ namespace QuanLiSoTietKiem.Models
         [DefaultValue(StateSavingBook.PENDING)]
         public StateSavingBook State { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime EffectedAt { get; set; }
 
         public DateTime ExpirationAt { get; set; }
 
@@ -30,12 +32,12 @@ namespace QuanLiSoTietKiem.Models
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
 
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         [ForeignKey("Interest")]
         public int InterestId { get; set; }
 
-        public Interest Interest { get; set; }
+        public virtual Interest Interest { get; set; }
 
     }
 
