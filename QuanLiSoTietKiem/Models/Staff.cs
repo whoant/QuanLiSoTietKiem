@@ -7,7 +7,7 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class Staff
+    public class Staff : BaseEntity
     {
         public int ID { get; set; }
 
@@ -39,7 +39,7 @@ namespace QuanLiSoTietKiem.Models
         [ForeignKey("Office")]
         public int OfficeId { get; set; }
 
-        public Office Office { get; set; }
+        public virtual Office Office { get; set; }
 
     }
 

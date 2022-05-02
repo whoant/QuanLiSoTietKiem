@@ -7,7 +7,7 @@ using System.Web;
 
 namespace QuanLiSoTietKiem.Models
 {
-    public class Customer
+    public class Customer : BaseEntity
     {
         public int ID { get; set; }
 
@@ -42,6 +42,6 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        public ICollection<SavingBook> SavingBooks { set; get; }
+        public virtual ICollection<SavingBook> SavingBooks { set; get; }
     }
 }
