@@ -13,7 +13,5 @@ namespace QuanLiSoTietKiem.Controllers
         {
             return View();
         }
-        //ok
-        // yêu em
     }
 }
