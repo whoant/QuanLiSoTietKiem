@@ -1,0 +1,26 @@
+﻿
+<div class="menu-sidebar__content js-scrollbar1">
+    <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar__list">
+            <li class="active has-sub">
+                <a class="js-arrow" href="#">
+                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                </a>
+            </li>
+            <li class="d-flex align-content-center ">
+                <i class="fas fa-chart-bar" style="padding: 20px 0"></i>
+                <a>
+                    @Html.ActionLink("Quản lí nhân viên", "Index", "Staff", new { @class = "w-100 ml-3" })
+                </a>
+            </li>
+            <li class="d-flex align-content-center ">
+                <i class="fas fa-table" style="padding: 20px 0"></i>
+
+                @Html.ActionLink("Quản lí chức vụ", "index", "Sach", new { @class = "w-100 ml-3" })
+
+            </li>
+            
+
+        </ul>
+    </nav>
+</div>
