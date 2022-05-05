@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QuanLiSoTietKiem.DAL;
+using QuanLiSoTietKiem.helpers;
 using QuanLiSoTietKiem.Models;
 
 namespace QuanLiSoTietKiem.Controllers
@@ -49,10 +50,11 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,UserName,Password,Name,Email,Phone,Birthday,Address,Sex,OfficeId,CreatedAt,UpdatedAt")] Staff staff)
+        public ActionResult Create([Bind(Include = "ID,UserName,Password,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
         {
             if (ModelState.IsValid)
             {
+                staff.Password = Hash.ComputeSha256(staff.Password);
                 db.Staffs.Add(staff);
                 db.SaveChanges();
                 return RedirectToAction("Index");
