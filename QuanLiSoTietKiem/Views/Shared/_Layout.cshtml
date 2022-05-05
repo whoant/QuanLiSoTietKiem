@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>@ViewBag.Title</title>
 
 
     <!-- Fontfaces CSS-->
@@ -71,28 +71,10 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="d-flex align-content-center ">
                             <i class="fas fa-chart-bar" style="padding: 20px 0"></i>
-                            <a>
                                 @Html.ActionLink("Quản lí nhân viên", "Index", "Staff", new { @class = "w-100 ml-3" })
-                            </a>
-
-
                         </li>
                         <li class="d-flex align-content-center ">
                             <i class="fas fa-table" style="padding: 20px 0"></i>
@@ -155,7 +137,7 @@
                                     <div class="account-item clearfix js-item-menu">
                                        
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">@Session["FullName"]</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             
@@ -173,7 +155,7 @@
                                               
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="/Authencation/Logout">
                                                     <i class="zmdi zmdi-power"></i>Logout
                                                 </a>
                                             </div>
@@ -190,7 +172,19 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-primary" role="alert">
+                                @TempData["Success"]
+                            </div>
+                            }
+                        @if (TempData["Error"] != null)
+                        {
+                        <div class="alert alert-danger" role="alert">
+                        @TempData["Error"]
+                    </div>
+                            }
+                        
                         @RenderBody()
                     </div>
                 </div>

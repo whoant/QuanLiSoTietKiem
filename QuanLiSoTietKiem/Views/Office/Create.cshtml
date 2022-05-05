@@ -1,50 +1,40 @@
 ﻿@model QuanLiSoTietKiem.Models.Office
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Phân quyền";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
+<div class="card">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Office</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ShortName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
-            </div>
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-center title-2">Thêm chức vụ mới</h3>
         </div>
+        <hr>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group has-success">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label mb-1" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>
+            <div>
+                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                    Tạo
+                </button>
+            </div>
+        }
+
+        
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div>
+    @Html.ActionLink("Quay trở lại", "Index")
+</div>

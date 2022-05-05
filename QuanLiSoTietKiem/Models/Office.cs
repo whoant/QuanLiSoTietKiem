@@ -10,9 +10,11 @@ namespace QuanLiSoTietKiem.Models
     {
         public int ID { get; set; }
 
+        [Required]
         public string ShortName { get; set; }
 
         [Display(Name = "Tên chức vụ")]
+        [Required(ErrorMessage = "Vui lòng điền tên chức vụ")]
         public string Name { get; set; }
 
         public virtual ICollection<Staff> Staffs { get; set; }
