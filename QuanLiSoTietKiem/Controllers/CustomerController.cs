@@ -11,6 +11,7 @@ using QuanLiSoTietKiem.Models;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    //test
     public class CustomerController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
