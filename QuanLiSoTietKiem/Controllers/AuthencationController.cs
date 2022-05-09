@@ -10,6 +10,7 @@ using QuanLiSoTietKiem.helpers;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    //thienvo test git 2
     public class AuthencationController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
