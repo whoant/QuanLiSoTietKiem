@@ -23,7 +23,7 @@ namespace QuanLiSoTietKiem.Models
         [DefaultValue(StateSavingBook.PENDING)]
         public StateSavingBook State { get; set; }
 
-        public DateTime EffectedAt { get; set; }
+        public DateTime EffectedAt { get; set; } = DateTime.Now;
 
         public DateTime ExpirationAt { get; set; }
 
