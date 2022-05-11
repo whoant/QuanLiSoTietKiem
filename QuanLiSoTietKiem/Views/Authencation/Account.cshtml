@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Chỉnh sửa mật khẩu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12 col md-12 col-12">
+        <div class="card mt-5">
+            <div class="card-body">
+                <h3 class="card-title text-center">Chỉnh sửa mật khẩu</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <form action="/Authencation/Account" method="post">
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-12"><label for="oldPassword">Mật khẩu cũ</label><input class="form-control" id="oldPassword" type="text" name="oldPassword" value="" /></div>
+                                <div class="form-group col-lg-12 col-12"><label for="newPassword">Mật khẩu mới</label><input class="form-control" id="newPassword" type="text" name="newPassword" value="" /></div>
+                                <div class="form-group col-lg-12 col-12"><label for="repeatNewPassword">Nhập lại mật khẩu mới</label><input class="form-control" id="repeatNewPassword" type="text" name="repeatNewPassword" value="" /></div>
+                            </div>
+                            <button class="btn btn-primary float-right">Cập nhập mật khẩu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
