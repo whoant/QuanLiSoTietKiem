@@ -30,6 +30,7 @@ namespace QuanLiSoTietKiem.Controllers
 
                 string hashPassword = Hash.ComputeSha256(userDetail.Password);
                 var data = db.Staffs.Where(s => s.UserName.Equals(userDetail.UserName) && s.Password.Equals(hashPassword));
+                
                 if (data.Count() > 0)
                 {
                     Session["FullName"] = data.FirstOrDefault().Name;
