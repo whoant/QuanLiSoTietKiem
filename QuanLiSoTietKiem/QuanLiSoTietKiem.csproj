@@ -197,6 +197,10 @@
     <Compile Include="Migrations\202205041026397_AddRequired.designer.cs">
       <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111445380_ok2.cs" />
+    <Compile Include="Migrations\202205111445380_ok2.designer.cs">
+      <DependentUpon>202205111445380_ok2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -661,6 +665,19 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="table\css\bootstrap.min.css" />
+    <Content Include="table\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="table\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="table\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="table\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="table\css\bootstrap\_media.css" />
+    <Content Include="table\css\style.css" />
+    <Content Include="table\index.html" />
+    <Content Include="table\js\bootstrap.min.js" />
+    <Content Include="table\js\jquery.min.js" />
+    <Content Include="table\js\main.js" />
+    <Content Include="table\js\popper.js" />
+    <Content Include="table\main.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -718,6 +735,105 @@
     <Content Include="Views\Shared\SideBarManager.cshtml" />
     <Content Include="Views\Shared\SideBarStaff.cshtml" />
     <Content Include="Views\Shared\_LayoutNo.cshtml" />
+    <Content Include="table\.DS_Store" />
+    <Content Include="table\css\.DS_Store" />
+    <Content Include="table\css\bootstrap\.DS_Store" />
+    <Content Include="table\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="table\fonts\.DS_Store" />
+    <Content Include="table\images\.DS_Store" />
+    <Content Include="table\js\.DS_Store" />
+    <Content Include="table\scss\.DS_Store" />
+    <Content Include="table\scss\bootstrap\.DS_Store" />
+    <Content Include="table\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="table\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="table\scss\bootstrap\bootstrap.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="table\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="table\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="table\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="table\scss\bootstrap\_alert.scss" />
+    <Content Include="table\scss\bootstrap\_badge.scss" />
+    <Content Include="table\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="table\scss\bootstrap\_button-group.scss" />
+    <Content Include="table\scss\bootstrap\_buttons.scss" />
+    <Content Include="table\scss\bootstrap\_card.scss" />
+    <Content Include="table\scss\bootstrap\_carousel.scss" />
+    <Content Include="table\scss\bootstrap\_close.scss" />
+    <Content Include="table\scss\bootstrap\_code.scss" />
+    <Content Include="table\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="table\scss\bootstrap\_dropdown.scss" />
+    <Content Include="table\scss\bootstrap\_forms.scss" />
+    <Content Include="table\scss\bootstrap\_functions.scss" />
+    <Content Include="table\scss\bootstrap\_grid.scss" />
+    <Content Include="table\scss\bootstrap\_images.scss" />
+    <Content Include="table\scss\bootstrap\_input-group.scss" />
+    <Content Include="table\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="table\scss\bootstrap\_list-group.scss" />
+    <Content Include="table\scss\bootstrap\_media.scss" />
+    <Content Include="table\scss\bootstrap\_mixins.scss" />
+    <Content Include="table\scss\bootstrap\_modal.scss" />
+    <Content Include="table\scss\bootstrap\_nav.scss" />
+    <Content Include="table\scss\bootstrap\_navbar.scss" />
+    <Content Include="table\scss\bootstrap\_pagination.scss" />
+    <Content Include="table\scss\bootstrap\_popover.scss" />
+    <Content Include="table\scss\bootstrap\_print.scss" />
+    <Content Include="table\scss\bootstrap\_progress.scss" />
+    <Content Include="table\scss\bootstrap\_reboot.scss" />
+    <Content Include="table\scss\bootstrap\_root.scss" />
+    <Content Include="table\scss\bootstrap\_spinners.scss" />
+    <Content Include="table\scss\bootstrap\_tables.scss" />
+    <Content Include="table\scss\bootstrap\_toasts.scss" />
+    <Content Include="table\scss\bootstrap\_tooltip.scss" />
+    <Content Include="table\scss\bootstrap\_transitions.scss" />
+    <Content Include="table\scss\bootstrap\_type.scss" />
+    <Content Include="table\scss\bootstrap\_utilities.scss" />
+    <Content Include="table\scss\bootstrap\_variables.scss" />
+    <Content Include="table\scss\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -772,6 +888,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205041026397_AddRequired.resx">
       <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111445380_ok2.resx">
+      <DependentUpon>202205111445380_ok2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
