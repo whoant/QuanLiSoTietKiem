@@ -5,7 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+
+<div class="col-12">
+    <div class="card mt-2">
+        <div class="card-body">
+            <h3 class="card-title text-center">Thông tin khách hàng</h3>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="form-group col-lg-4 col-12"><label for="FullName">Họ và tên</label><input class="form-control" id="FullName" type="text" name="FullName" value="@ViewBag.customer.FullName" disabled="" /></div>
+                        <div class="form-group col-lg-4 col-12"><label for="IdentityNumber">Số chứng minh thư</label><input class="form-control" id="IdentityNumber" type="text" name="IdentityNumber" value="@ViewBag.customer.IdentityNumber" disabled="" /></div>
+                        <div class="form-group col-lg-4 col-12"><label for="UserName">Tài khoản</label><input class="form-control" id="UserName" type="text" name="UserName" value="@ViewBag.customer.UserName" disabled="" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +30,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Interest.Name)
+            @Html.DisplayNameFor(model => model.ID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DepositAmount)
@@ -28,67 +42,43 @@
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EffectedAt)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ExpirationAt)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClosingAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </th>
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Interest.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepositAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InterestAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EffectedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExpirationAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClosingAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+
+            <td>
+                @String.Format("{0:0,0}", item.DepositAmount)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.InterestAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+  
+            <td>
+                @item.EffectedAt.ToString("dd/MM/yyy HH:mm")
+            </td>
+            <td>
+                @item.ExpirationAt.ToString("dd/MM/yyy HH:mm")
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

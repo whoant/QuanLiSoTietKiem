@@ -26,10 +26,13 @@ namespace QuanLiSoTietKiem.Models
         [DefaultValue(StateSavingBook.PENDING)]
         public StateSavingBook State { get; set; }
 
+        [Display(Name = "Ngày mở")]
         public DateTime EffectedAt { get; set; } = DateTime.Now;
 
+        [Display(Name = "Ngày hết hạn")]
         public DateTime ExpirationAt { get; set; }
 
+        [Display(Name = "Ngày đóng")]
         public DateTime? ClosingAt { get; set; } = null;
 
         [ForeignKey("Customer")]

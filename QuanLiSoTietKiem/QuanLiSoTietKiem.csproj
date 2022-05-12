@@ -147,6 +147,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Deposit.cs" />
+    <Compile Include="Common\InterestCommon.cs" />
     <Compile Include="Common\OfficeCount.cs" />
     <Compile Include="Common\UserDetail.cs" />
     <Compile Include="Controllers\AuthencationController.cs" />
@@ -739,9 +740,7 @@
     <Content Include="Views\Interest\Create.cshtml" />
     <Content Include="Views\Interest\Index.cshtml" />
     <Content Include="Views\SavingBook\Create.cshtml" />
-    <Content Include="Views\SavingBook\Delete.cshtml" />
     <Content Include="Views\SavingBook\Details.cshtml" />
-    <Content Include="Views\SavingBook\Edit.cshtml" />
     <Content Include="Views\SavingBook\Index.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Authencation\Login.cshtml" />

@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DepositAmount)
+            @String.Format("{0:0,0}", Model.DepositAmount)
         </dd>
 
         <dt>
@@ -40,7 +40,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InterestAmount)
+            @String.Format("{0:0,0}", Model.InterestAmount)
+            
         </dd>
 
         <dt>
@@ -64,7 +65,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EffectedAt)
+            @Model.EffectedAt.ToString("dd/MM/yyy HH:mm")
         </dd>
 
         <dt>
@@ -72,7 +73,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ExpirationAt)
+            @Model.ExpirationAt.ToString("dd/MM/yyy HH:mm")
         </dd>
 
         <dt>
@@ -80,28 +81,27 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ClosingAt)
+            @{
+                string close = "Chưa đóng";
+                if (Model.ClosingAt != null)
+                {
+                    close = Model.ClosingAt?.ToString("dd/MM/yyy HH:mm");
+                }
+                
+            }
+            @close
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
 
     </dl>
 </div>
+<form action="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" method="post">
+    <input type="submit" value="Tất toán sớm" class="btn btn-danger" />
+</form>
+
+<a href="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" class="btn btn-primary" target="_blank">Xuất sổ tiết kiệm</a>
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
