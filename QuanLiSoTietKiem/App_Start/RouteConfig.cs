@@ -14,6 +14,12 @@ namespace QuanLiSoTietKiem
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "SavingBook",
+                url: "Customer/{customerId}/SavingBook/{action}/{id}",
+                defaults: new { controller = "SavingBook", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional }
