@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Hangfire;
 using QuanLiSoTietKiem.DAL;
 using QuanLiSoTietKiem.helpers;
+using QuanLiSoTietKiem.Helpers;
 using QuanLiSoTietKiem.Models;
 
 namespace QuanLiSoTietKiem.Controllers
@@ -41,7 +43,7 @@ namespace QuanLiSoTietKiem.Controllers
         // GET: Staff/Create
         public ActionResult Create()
         {
-            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "ShortName");
+            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "Name");
             return View();
         }
 
@@ -54,13 +56,17 @@ namespace QuanLiSoTietKiem.Controllers
         {
             if (ModelState.IsValid)
             {
-                staff.Password = Hash.ComputeSha256(staff.Password);
+                string password = StringHelper.RandomString(10);
+                BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>"));
+                
+                staff.Password = Hash.ComputeSha256(password);
                 db.Staffs.Add(staff);
                 db.SaveChanges();
+                TempData["Success"] = "Tạo tài khoản thành công ! Vui lòng kiểm tra mail để tài khoản gửi về";
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "ShortName", staff.OfficeId);
+            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "Name", staff.OfficeId);
             return View(staff);
         }
 
@@ -76,7 +82,7 @@ namespace QuanLiSoTietKiem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "ShortName", staff.OfficeId);
+            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "Name", staff.OfficeId);
             return View(staff);
         }
 
@@ -91,35 +97,23 @@ namespace QuanLiSoTietKiem.Controllers
             {
                 db.Entry(staff).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["Success"] = "Cập nhập thông tin thành công !";
                 return RedirectToAction("Index");
             }
-            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "ShortName", staff.OfficeId);
+            ViewBag.OfficeId = new SelectList(db.Offices, "ID", "Name", staff.OfficeId);
             return View(staff);
         }
 
-        // GET: Staff/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult ResetPassword(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Staff staff = db.Staffs.Find(id);
-            if (staff == null)
-            {
-                return HttpNotFound();
-            }
-            return View(staff);
-        }
+            string password = StringHelper.RandomString(10);
+            BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>"));
 
-        // POST: Staff/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
+            staff.Password = Hash.ComputeSha256(password);
+            db.Staffs.Add(staff);
             db.SaveChanges();
+            TempData["Success"] = "Cập nhập mật khẩu thành công ! Vui lòng kiểm tra mail để tài khoản gửi về";
             return RedirectToAction("Index");
         }
 
