@@ -197,6 +197,14 @@
     <Compile Include="Migrations\202205041026397_AddRequired.designer.cs">
       <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111742143_Add.cs" />
+    <Compile Include="Migrations\202205111742143_Add.designer.cs">
+      <DependentUpon>202205111742143_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205120844542_DeleteRequiredShortName.cs" />
+    <Compile Include="Migrations\202205120844542_DeleteRequiredShortName.designer.cs">
+      <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -683,9 +691,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Office\Create.cshtml" />
-    <Content Include="Views\Office\Delete.cshtml" />
-    <Content Include="Views\Office\Details.cshtml" />
-    <Content Include="Views\Office\Edit.cshtml" />
     <Content Include="Views\Office\Index.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
@@ -772,6 +777,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205041026397_AddRequired.resx">
       <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111742143_Add.resx">
+      <DependentUpon>202205111742143_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205120844542_DeleteRequiredShortName.resx">
+      <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
