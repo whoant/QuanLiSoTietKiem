@@ -27,7 +27,7 @@ namespace QuanLiSoTietKiem.Models
 
         public DateTime ExpirationAt { get; set; }
 
-        public DateTime ClosingAt { get; set; }
+        public DateTime? ClosingAt { get; set; } = null;
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
