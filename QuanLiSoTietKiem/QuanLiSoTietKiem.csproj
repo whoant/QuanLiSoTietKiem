@@ -227,6 +227,18 @@
     <Compile Include="Migrations\202205120844542_DeleteRequiredShortName.designer.cs">
       <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205121153415_AddImagePathToSavingBook.cs" />
+    <Compile Include="Migrations\202205121153415_AddImagePathToSavingBook.designer.cs">
+      <DependentUpon>202205121153415_AddImagePathToSavingBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205121159395_RemoveImagePath.cs" />
+    <Compile Include="Migrations\202205121159395_RemoveImagePath.designer.cs">
+      <DependentUpon>202205121159395_RemoveImagePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205121239411_RemoveRequiredImagePath.cs" />
+    <Compile Include="Migrations\202205121239411_RemoveRequiredImagePath.designer.cs">
+      <DependentUpon>202205121239411_RemoveRequiredImagePath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -715,11 +727,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Office\Create.cshtml" />
     <Content Include="Views\Office\Index.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
-    <Content Include="Views\Customer\Delete.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
-    <Content Include="Views\Customer\Edit.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Staff\Create.cshtml" />
     <Content Include="Views\Staff\Details.cshtml" />
     <Content Include="Views\Staff\Edit.cshtml" />
@@ -742,9 +749,14 @@
     <Content Include="Views\Shared\SideBarManager.cshtml" />
     <Content Include="Views\Shared\SideBarStaff.cshtml" />
     <Content Include="Views\Shared\_LayoutNo.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -802,6 +814,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205120844542_DeleteRequiredShortName.resx">
       <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121153415_AddImagePathToSavingBook.resx">
+      <DependentUpon>202205121153415_AddImagePathToSavingBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121159395_RemoveImagePath.resx">
+      <DependentUpon>202205121159395_RemoveImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121239411_RemoveRequiredImagePath.resx">
+      <DependentUpon>202205121239411_RemoveRequiredImagePath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

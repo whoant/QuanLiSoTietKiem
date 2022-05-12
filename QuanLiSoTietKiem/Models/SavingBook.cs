@@ -13,11 +13,14 @@ namespace QuanLiSoTietKiem.Models
         public int ID { get; set; }
 
         [Display(Name = "Số tiền gửi")]
+        [Required]
         public long DepositAmount { get; set; }
 
         [Display(Name = "Số tiền lãi")]
         public long InterestAmount { get; set; }
 
+        [Display(Name = "Loại tài khoản")]
+        [Required]
         public TypeSavingBook Type { get; set; }
 
         [DefaultValue(StateSavingBook.PENDING)]
