@@ -55,10 +55,13 @@
                     @Html.DisplayFor(modelItem => item.Balance)
                 </td>
                 <td>
-                    0
+                   1
                 </td>
                 <td>
-                    @item.SavingBooks.Count()
+                    <a href="/Customer/@item.ID/SavingBook">
+                        @item.SavingBooks.Count(s => s.State == 0)
+                    </a>
+                    
                 </td>
 
                 <td>

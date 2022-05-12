@@ -125,6 +125,27 @@ namespace QuanLiSoTietKiem.Controllers
             return View(customer);
         }
 
+
+        public ActionResult ResetPassword(int id)
+        {
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            string password = StringHelper.RandomString(10);
+            string encryptPassword = Hash.ComputeSha256(password);
+            customer.Password = encryptPassword;
+
+            BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Quên mật khẩu", $"Mật khẩu mới của bạn: <strong>{password}</strong>"));
+
+            db.Entry(customer).State = EntityState.Modified;
+            db.SaveChanges();
+            TempData["Success"] = "Reset mật khẩu thành công !";
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

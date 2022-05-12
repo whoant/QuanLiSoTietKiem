@@ -49,10 +49,10 @@ namespace QuanLiSoTietKiem.Models
 
     public enum StateSavingBook
     {
-        PENDING,
-        FINISHED,
-        ON_TIME,
-        PROCESSING
+        PENDING, // dang trong han
+        FINISHED, // da tat toan
+        ON_TIME, // tat toan som
+        PROCESSING // đang chờ tất toán
     }
 
     public enum TypeSavingBook
