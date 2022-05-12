@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using QuanLiSoTietKiem.DAL;
 using QuanLiSoTietKiem.Models;
+using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    [CustomAuthorize(Roles = "giam_doc")]
     public class PeriodController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();

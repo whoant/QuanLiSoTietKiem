@@ -68,51 +68,54 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-chart-bar" style="padding: 20px 0"></i>
-                                @Html.ActionLink("Quản lí nhân viên", "Index", "Staff", new { @class = "w-100 ml-3" })
-                        </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-table" style="padding: 20px 0"></i>
+                        @if (Session["Role"] != null && Session["Role"].ToString() == "quan_tri_vien")
+                        {
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-chart-bar" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Staff">Quản lí nhân viên</a>
+                            </li>
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-table" style="padding: 20px 0"></i>
+                                @Html.ActionLink("Quản lí chức vụ", "index", "Sach", new { @class = "w-100 ml-3" })
+                            </li>
+                        }
 
-                            @Html.ActionLink("Quản lí chức vụ", "index", "Sach", new { @class = "w-100 ml-3" })
+                        @if (Session["Role"] != null && Session["Role"].ToString() == "giam_doc")
+                        {
+                            <li class="d-flex align-content-center ">
+                                <i class="far fa-check-square" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Interest">Quản lí lãi suất</a>
+                            </li>
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-calendar-alt" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Period">Quản lí kì hạn</a>
+                            </li>
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-map-marker-alt" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Report">Quản lí báo cáo</a>
+                            </li>
+                        }
 
-                        </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="far fa-check-square" style="padding: 20px 0"></i>
+                        @if (Session["Role"] != null && Session["Role"].ToString() == "nhan_vien")
+                        {
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-copy" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Customer">Quản lí Khách hàng</a>
 
-                            @Html.ActionLink("Quản lí lãi suất", "index", "Sach", new { @class = "w-100 ml-3" })
+                            </li>
 
-                        </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-calendar-alt" style="padding: 20px 0"></i>
+                            <li class="d-flex align-content-center ">
+                                <i class="fas fa-magic" style="padding: 20px 0"></i>
+                                <a class="w-100 ml-3" href="/Customer">Quản lí tài khoản tiết kiệm đã quá hạn</a>
 
-                            @Html.ActionLink("Quản lí kì hạn", "index", "Sach", new { @class = "w-100 ml-3" })
 
-                        </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-map-marker-alt" style="padding: 20px 0"></i>
+                            </li>
+                        }
 
-                            @Html.ActionLink("Quản lí báo cáo", "index", "Sach", new { @class = "w-100 ml-3" })
-
-                        </li>
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-copy" style="padding: 20px 0"></i>
-
-                            @Html.ActionLink("Quản lí Khách hàng", "index", "Sach", new { @class = "w-100 ml-3" })
-
-                        </li>
-
-                        <li class="d-flex align-content-center ">
-                            <i class="fas fa-magic" style="padding: 20px 0"></i>
-
-                            @Html.ActionLink("Quản lí tài khoản nhân viên đã quá hạn", "index", "Sach", new { @class = "w-100 ml-3" })
-
-                        </li>
 
                     </ul>
                 </nav>
@@ -132,15 +135,15 @@
 
                             </div>
                             <div class="header-button">
-                               
+
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                       
+
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">@Session["FullName"]</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
-                                            
+
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
@@ -152,7 +155,7 @@
                                                         <i class="zmdi zmdi-settings"></i>Setting
                                                     </a>
                                                 </div>
-                                              
+
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="/Authencation/Logout">
@@ -177,14 +180,14 @@
                             <div class="alert alert-primary" role="alert">
                                 @TempData["Success"]
                             </div>
-                            }
+                        }
                         @if (TempData["Error"] != null)
                         {
-                        <div class="alert alert-danger" role="alert">
-                        @TempData["Error"]
-                    </div>
-                            }
-                        
+                            <div class="alert alert-danger" role="alert">
+                                @TempData["Error"]
+                            </div>
+                        }
+
                         @RenderBody()
                     </div>
                 </div>

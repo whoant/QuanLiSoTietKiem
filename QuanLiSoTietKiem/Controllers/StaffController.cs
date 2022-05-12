@@ -11,9 +11,11 @@ using QuanLiSoTietKiem.DAL;
 using QuanLiSoTietKiem.helpers;
 using QuanLiSoTietKiem.Helpers;
 using QuanLiSoTietKiem.Models;
+using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    [CustomAuthorize(Roles = "quan_tri_vien")]
     public class StaffController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();

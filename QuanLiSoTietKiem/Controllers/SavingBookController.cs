@@ -11,9 +11,11 @@ using QuanLiSoTietKiem.Common;
 using QuanLiSoTietKiem.DAL;
 using QuanLiSoTietKiem.Helpers;
 using QuanLiSoTietKiem.Models;
+using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    [CustomAuthorize(Roles = "nhan_vien")]
     public class SavingBookController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();

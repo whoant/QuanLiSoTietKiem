@@ -12,9 +12,11 @@ using QuanLiSoTietKiem.DAL;
 using QuanLiSoTietKiem.helpers;
 using QuanLiSoTietKiem.Helpers;
 using QuanLiSoTietKiem.Models;
+using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
+    [CustomAuthorize(Roles = "nhan_vien")]
     public class CustomerController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();

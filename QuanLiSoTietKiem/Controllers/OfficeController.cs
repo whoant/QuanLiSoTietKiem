@@ -16,7 +16,7 @@ using QuanLiSoTietKiem.Security;
 namespace QuanLiSoTietKiem.Controllers
 {
 
-    
+    [CustomAuthorize(Roles = "quan_tri_vien")]
     public class OfficeController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
