@@ -35,7 +35,8 @@ namespace QuanLiSoTietKiem.Controllers
                     Session["FullName"] = data.FirstOrDefault().Name;
                     Session["UserName"] = data.FirstOrDefault().UserName;
                     Session["ID"] = data.FirstOrDefault().ID;
-                    return Redirect("/Office");
+                    Session["Role"] = data.FirstOrDefault().Office.ShortName;
+                    return Redirect("/");
                 }
 
             }
@@ -50,6 +51,7 @@ namespace QuanLiSoTietKiem.Controllers
             Session["FullName"] = null;
             Session["UserName"] = null;
             Session["ID"] = null;
+            Session["Role"] = null;
             return RedirectToAction("Login");
         }
 
