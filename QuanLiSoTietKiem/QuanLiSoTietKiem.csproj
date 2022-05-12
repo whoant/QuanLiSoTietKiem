@@ -730,9 +730,6 @@
     <Content Include="Views\Period\Edit.cshtml" />
     <Content Include="Views\Period\Index.cshtml" />
     <Content Include="Views\Interest\Create.cshtml" />
-    <Content Include="Views\Interest\Delete.cshtml" />
-    <Content Include="Views\Interest\Details.cshtml" />
-    <Content Include="Views\Interest\Edit.cshtml" />
     <Content Include="Views\Interest\Index.cshtml" />
     <Content Include="Views\SavingBook\Create.cshtml" />
     <Content Include="Views\SavingBook\Delete.cshtml" />
