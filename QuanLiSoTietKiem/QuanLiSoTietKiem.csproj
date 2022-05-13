@@ -168,77 +168,9 @@
     <Compile Include="Helpers\InterestHelper.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="Migrations\202205011019170_CreateCustomer.cs" />
-    <Compile Include="Migrations\202205011019170_CreateCustomer.designer.cs">
-      <DependentUpon>202205011019170_CreateCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011724215_CreateInterestAndPeriod1.cs" />
-    <Compile Include="Migrations\202205011724215_CreateInterestAndPeriod1.designer.cs">
-      <DependentUpon>202205011724215_CreateInterestAndPeriod1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011727565_CreateRelationship.cs" />
-    <Compile Include="Migrations\202205011727565_CreateRelationship.designer.cs">
-      <DependentUpon>202205011727565_CreateRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011738245_CreateStaff.cs" />
-    <Compile Include="Migrations\202205011738245_CreateStaff.designer.cs">
-      <DependentUpon>202205011738245_CreateStaff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011743163_CreateOffice.cs" />
-    <Compile Include="Migrations\202205011743163_CreateOffice.designer.cs">
-      <DependentUpon>202205011743163_CreateOffice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011746453_CreateFormCreate.cs" />
-    <Compile Include="Migrations\202205011746453_CreateFormCreate.designer.cs">
-      <DependentUpon>202205011746453_CreateFormCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011748169_CreateFormClose.cs" />
-    <Compile Include="Migrations\202205011748169_CreateFormClose.designer.cs">
-      <DependentUpon>202205011748169_CreateFormClose.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011756356_AddCreatedAtToFormCreate.cs" />
-    <Compile Include="Migrations\202205011756356_AddCreatedAtToFormCreate.designer.cs">
-      <DependentUpon>202205011756356_AddCreatedAtToFormCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011809486_AddCreatedAtAndUpdatedAt.cs" />
-    <Compile Include="Migrations\202205011809486_AddCreatedAtAndUpdatedAt.designer.cs">
-      <DependentUpon>202205011809486_AddCreatedAtAndUpdatedAt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011813081_RenameColumn.cs" />
-    <Compile Include="Migrations\202205011813081_RenameColumn.designer.cs">
-      <DependentUpon>202205011813081_RenameColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205011821393_RenameId.cs" />
-    <Compile Include="Migrations\202205011821393_RenameId.designer.cs">
-      <DependentUpon>202205011821393_RenameId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205020204555_ChangeNameColumn.cs" />
-    <Compile Include="Migrations\202205020204555_ChangeNameColumn.designer.cs">
-      <DependentUpon>202205020204555_ChangeNameColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205041026397_AddRequired.cs" />
-    <Compile Include="Migrations\202205041026397_AddRequired.designer.cs">
-      <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205111742143_Add.cs" />
-    <Compile Include="Migrations\202205111742143_Add.designer.cs">
-      <DependentUpon>202205111742143_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205120844542_DeleteRequiredShortName.cs" />
-    <Compile Include="Migrations\202205120844542_DeleteRequiredShortName.designer.cs">
-      <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205121153415_AddImagePathToSavingBook.cs" />
-    <Compile Include="Migrations\202205121153415_AddImagePathToSavingBook.designer.cs">
-      <DependentUpon>202205121153415_AddImagePathToSavingBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205121159395_RemoveImagePath.cs" />
-    <Compile Include="Migrations\202205121159395_RemoveImagePath.designer.cs">
-      <DependentUpon>202205121159395_RemoveImagePath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205121239411_RemoveRequiredImagePath.cs" />
-    <Compile Include="Migrations\202205121239411_RemoveRequiredImagePath.designer.cs">
-      <DependentUpon>202205121239411_RemoveRequiredImagePath.cs</DependentUpon>
+    <Compile Include="Migrations\202205131749483_Init.cs" />
+    <Compile Include="Migrations\202205131749483_Init.designer.cs">
+      <DependentUpon>202205131749483_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -752,6 +684,7 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Authencation\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -769,59 +702,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205011019170_CreateCustomer.resx">
-      <DependentUpon>202205011019170_CreateCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011724215_CreateInterestAndPeriod1.resx">
-      <DependentUpon>202205011724215_CreateInterestAndPeriod1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011727565_CreateRelationship.resx">
-      <DependentUpon>202205011727565_CreateRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011738245_CreateStaff.resx">
-      <DependentUpon>202205011738245_CreateStaff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011743163_CreateOffice.resx">
-      <DependentUpon>202205011743163_CreateOffice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011746453_CreateFormCreate.resx">
-      <DependentUpon>202205011746453_CreateFormCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011748169_CreateFormClose.resx">
-      <DependentUpon>202205011748169_CreateFormClose.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011756356_AddCreatedAtToFormCreate.resx">
-      <DependentUpon>202205011756356_AddCreatedAtToFormCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011809486_AddCreatedAtAndUpdatedAt.resx">
-      <DependentUpon>202205011809486_AddCreatedAtAndUpdatedAt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011813081_RenameColumn.resx">
-      <DependentUpon>202205011813081_RenameColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205011821393_RenameId.resx">
-      <DependentUpon>202205011821393_RenameId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205020204555_ChangeNameColumn.resx">
-      <DependentUpon>202205020204555_ChangeNameColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205041026397_AddRequired.resx">
-      <DependentUpon>202205041026397_AddRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205111742143_Add.resx">
-      <DependentUpon>202205111742143_Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205120844542_DeleteRequiredShortName.resx">
-      <DependentUpon>202205120844542_DeleteRequiredShortName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205121153415_AddImagePathToSavingBook.resx">
-      <DependentUpon>202205121153415_AddImagePathToSavingBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205121159395_RemoveImagePath.resx">
-      <DependentUpon>202205121159395_RemoveImagePath.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205121239411_RemoveRequiredImagePath.resx">
-      <DependentUpon>202205121239411_RemoveRequiredImagePath.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205131749483_Init.resx">
+      <DependentUpon>202205131749483_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

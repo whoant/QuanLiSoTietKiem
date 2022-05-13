@@ -40,7 +40,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Factor,EffectedAt,PeriodID,CreatedAt,UpdatedAt")] Interest interest)
+        public ActionResult Create([Bind(Include = "Name,Factor,EffectedAt,PeriodID")] Interest interest)
         {
             if (ModelState.IsValid)
             {

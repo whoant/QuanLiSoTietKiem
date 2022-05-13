@@ -23,6 +23,6 @@ namespace QuanLiSoTietKiem.Models
 
         public virtual Staff Staff { get; set; }
 
-        public DateTime EffectedAt { get; set; }
+        public DateTime EffectedAt { get; set; } = DateTime.Now;
     }
 }
