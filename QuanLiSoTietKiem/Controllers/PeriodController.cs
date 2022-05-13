@@ -35,7 +35,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Month")] Period period)
+        public ActionResult Create([Bind(Include = "Name,Month")] Period period)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +43,7 @@ namespace QuanLiSoTietKiem.Controllers
                 {
                     db.Periods.Add(period);
                     db.SaveChanges();
-                    TempData["Error"] = "Tạo thành công !";
+                    TempData["Success"] = "Tạo thành công !";
                     return RedirectToAction("Index");
                 }
                 TempData["Error"] = "Kì hạn này đã tồn tại !";

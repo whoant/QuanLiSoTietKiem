@@ -55,7 +55,7 @@
                     @Html.DisplayFor(modelItem => item.Balance)
                 </td>
                 <td>
-                   1
+                   @item.SavingBooks.Where(s => s.State == QuanLiSoTietKiem.Models.StateSavingBook.PENDING || s.State == QuanLiSoTietKiem.Models.StateSavingBook.PROCESSING).Sum(i => i.InterestAmount)
                 </td>
                 <td>
                     <a href="/Customer/@item.ID/SavingBook">

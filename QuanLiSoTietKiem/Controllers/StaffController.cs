@@ -54,7 +54,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,UserName,Password,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
+        public ActionResult Create([Bind(Include = "UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,UserName,Password,Name,Email,Phone,Birthday,Address,Sex,OfficeId,CreatedAt,UpdatedAt")] Staff staff)
+        public ActionResult Edit([Bind(Include = "UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +113,7 @@ namespace QuanLiSoTietKiem.Controllers
             BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>"));
 
             staff.Password = Hash.ComputeSha256(password);
-            db.Staffs.Add(staff);
+            db.Entry(staff).State = EntityState.Modified;
             db.SaveChanges();
             TempData["Success"] = "Cập nhập mật khẩu thành công ! Vui lòng kiểm tra mail để tài khoản gửi về";
             return RedirectToAction("Index");

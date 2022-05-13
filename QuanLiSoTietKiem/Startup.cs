@@ -13,7 +13,7 @@ namespace QuanLiSoTietKiem
     {
         public void Configuration(IAppBuilder app)
         {
-            GlobalConfiguration.Configuration.UseSqlServerStorage("Server=localhost,1434;Database=manage_saving_dev;User Id=sa;Password=Vovanhoangtuan1;");
+            GlobalConfiguration.Configuration.UseSqlServerStorage("Server=128.199.241.206,1434;Database=manage_saving_dev;User Id=sa;Password=Vovanhoangtuan1;");
 
             app.UseHangfireDashboard();
             app.UseHangfireServer();

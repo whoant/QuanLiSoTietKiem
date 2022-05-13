@@ -7,13 +7,13 @@ namespace QuanLiSoTietKiem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class RemoveRequiredImagePath : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveRequiredImagePath));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205121239411_RemoveRequiredImagePath"; }
+            get { return "202205131749483_Init"; }
         }
         
         string IMigrationMetadata.Source

@@ -82,7 +82,7 @@ namespace QuanLiSoTietKiem.Controllers
                 FormCreate formCreate = new FormCreate
                 {
                     SavingBookId = newSavingBook.ID,
-                    StaffId = (int)Session["ID"]
+                    StaffId = Convert.ToInt32(Session["ID"])
                 };
                 db.FormCreates.Add(formCreate);
                 db.SaveChanges();

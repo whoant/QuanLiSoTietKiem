@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuanLiSoTietKiem.helpers;
+using System.Data.Entity;
 
 namespace QuanLiSoTietKiem.Controllers
 {
@@ -53,6 +54,42 @@ namespace QuanLiSoTietKiem.Controllers
             Session["ID"] = null;
             Session["Role"] = null;
             return RedirectToAction("Login");
+        }
+
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string OldPassword, string NewPassword, string RepeatPassword)
+        {
+
+            Staff staff = db.Staffs.Find(Convert.ToInt32(Session["ID"].ToString()));
+
+            if (staff == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (NewPassword != RepeatPassword)
+            {
+                TempData["Error"] = "Mật khẩu mới không khớp nhau !";
+                return View();
+            }
+
+            if (staff.Password != Hash.ComputeSha256(OldPassword))
+            {
+                TempData["Error"] = "Vui lòng kiểm tra lại mật khẩu !";
+                return View();
+            }
+
+            staff.Password = Hash.ComputeSha256(NewPassword);
+            db.Entry(staff).State = EntityState.Modified;
+            db.SaveChanges();
+            TempData["Success"] = "Đổi mật khẩu thành công !";
+            return Redirect("/Dashboard");
         }
 
     }
