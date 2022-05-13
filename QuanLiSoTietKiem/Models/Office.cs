@@ -10,7 +10,7 @@ namespace QuanLiSoTietKiem.Models
     {
         public int ID { get; set; }
 
-        [Required]
+        
         public string ShortName { get; set; }
 
         [Display(Name = "Tên chức vụ")]

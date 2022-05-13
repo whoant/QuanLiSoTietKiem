@@ -29,6 +29,9 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Số chứng minh thư")]
         public string IdentityNumber { get; set; }
 
+        [Display(Name = "Ảnh khách hàng")]
+        public string ImagePath { get; set; }
+
         [DefaultValue(0)]
         [Display(Name = "Số dư")]
         public long Balance { get; set; }

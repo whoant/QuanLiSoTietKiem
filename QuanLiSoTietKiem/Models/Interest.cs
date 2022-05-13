@@ -17,13 +17,14 @@ namespace QuanLiSoTietKiem.Models
         [Display(Name = "Hệ số lãi suất")]
         public double Factor { get; set; }
 
-        public DateTime EffectedAt { get; set; }
+        [Display(Name = "Ngày áp dụng")]
+        public DateTime EffectedAt { get; set; } = DateTime.Now;
 
         [ForeignKey("Period")]
         public int PeriodID { get; set; }
 
-        public Period Period { get; set; }
+        public virtual Period Period { get; set; }
 
-        public ICollection<SavingBook> SavingBooks { get; set; }
+        public virtual ICollection<SavingBook> SavingBooks { get; set; }
     }
 }

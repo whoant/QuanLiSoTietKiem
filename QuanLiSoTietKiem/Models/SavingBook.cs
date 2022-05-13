@@ -13,21 +13,27 @@ namespace QuanLiSoTietKiem.Models
         public int ID { get; set; }
 
         [Display(Name = "Số tiền gửi")]
+        [Required]
         public long DepositAmount { get; set; }
 
         [Display(Name = "Số tiền lãi")]
         public long InterestAmount { get; set; }
 
+        [Display(Name = "Loại tài khoản")]
+        [Required]
         public TypeSavingBook Type { get; set; }
 
         [DefaultValue(StateSavingBook.PENDING)]
         public StateSavingBook State { get; set; }
 
-        public DateTime EffectedAt { get; set; }
+        [Display(Name = "Ngày mở")]
+        public DateTime EffectedAt { get; set; } = DateTime.Now;
 
+        [Display(Name = "Ngày hết hạn")]
         public DateTime ExpirationAt { get; set; }
 
-        public DateTime ClosingAt { get; set; }
+        [Display(Name = "Ngày đóng")]
+        public DateTime? ClosingAt { get; set; } = null;
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
@@ -43,10 +49,10 @@ namespace QuanLiSoTietKiem.Models
 
     public enum StateSavingBook
     {
-        PENDING,
-        FINISHED,
-        ON_TIME,
-        PROCESSING
+        PENDING, // dang trong han
+        FINISHED, // da tat toan
+        ON_TIME, // tat toan som
+        PROCESSING // đang chờ tất toán
     }
 
     public enum TypeSavingBook
