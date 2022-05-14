@@ -34,9 +34,27 @@
     <!-- Main CSS-->
     <link href="~/CoolAdmin-master/css/theme.css" rel="stylesheet" media="all">
 
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/table/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    @*<script type="text/javascript">
+       
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus', function () {
+
+            })
+        })
+        $('#header-desktop').css('zindex', 0)
+        console.log("ok1")
+    </script*@>
+
 </head>
 
-<body class="animsition">
+<body class="animsition" >
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
@@ -56,13 +74,53 @@
             </div>
 
         </header>
+        <header class="header-desktop" id="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <div>
+
+                        </div>
+                        <div class="header-button">
+
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">@Session["FullName"]</a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+
+                                        <div class="account-dropdown__body">
+                                            <div class="account-dropdown__item">
+                                                <a href="/Authencation/ChangePassword">
+                                                    <i class="zmdi zmdi-account"></i>Account
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="/Authencation/Logout">
+                                                <i class="zmdi zmdi-power"></i>Logout
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <!-- END HEADER MOBILE-->
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
                     <img src="images/icon/logo.png" alt="Cool Admin" />
+
                 </a>
+
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -80,7 +138,7 @@
                             </li>
                             <li class="d-flex align-content-center ">
                                 <i class="fas fa-table" style="padding: 20px 0"></i>
-                                @Html.ActionLink("Quản lí chức vụ", "index", "Sach", new { @class = "w-100 ml-3" })
+                                @Html.ActionLink("Quản lí chức vụ", "Index", "Office", new { @class = "w-100 ml-3" })
                             </li>
                         }
 
@@ -121,50 +179,14 @@
                 </nav>
             </div>
         </aside>
+
+
         <!-- END MENU SIDEBAR-->
         <!-- PAGE CONTAINER-->
-        <div class="page-container">
+        <div class="page-container" style="margin-top: 75px">
 
 
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <div>
-
-                            </div>
-                            <div class="header-button">
-
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">@Session["FullName"]</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="/Authencation/ChangePassword">
-                                                        <i class="zmdi zmdi-account"></i>Account
-                                                    </a>
-                                                </div>
-                                              
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="/Authencation/Logout">
-                                                    <i class="zmdi zmdi-power"></i>Logout
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
             <!-- HEADER DESKTOP-->
 
             <div class="main-content">
@@ -192,31 +214,37 @@
             <!-- END PAGE CONTAINER-->
         </div>
 
-    </div>
 
-    <!-- Jquery JS-->
-    <script src="~/CoolAdmin-master/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="~/CoolAdmin-master/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="~/CoolAdmin-master/vendor/slick/slick.min.js">
-    </script>
-    <script src="~/CoolAdmin-master/vendor/wow/wow.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/animsition/animsition.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="~/CoolAdmin-master/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="~/CoolAdmin-master/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="~/CoolAdmin-master/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="~/CoolAdmin-master/vendor/select2/select2.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+        <!-- Jquery JS-->
+        <script src="~/CoolAdmin-master/vendor/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="~/CoolAdmin-master/vendor/bootstrap-4.1/popper.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+        <!-- Vendor JS       -->
+        <script src="~/CoolAdmin-master/vendor/slick/slick.min.js">
+        </script>
+        <script src="~/CoolAdmin-master/vendor/wow/wow.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/animsition/animsition.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+        </script>
+        <script src="~/CoolAdmin-master/vendor/counter-up/jquery.waypoints.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/counter-up/jquery.counterup.min.js">
+        </script>
+        <script src="~/CoolAdmin-master/vendor/circle-progress/circle-progress.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="~/CoolAdmin-master/vendor/chartjs/Chart.bundle.min.js"></script>
+        <script src="~/CoolAdmin-master/vendor/select2/select2.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
-    <!-- Main JS-->
-    <script src="~/CoolAdmin-master/js/main.js"></script>
+        <!-- Main JS-->
+        <script src="~/CoolAdmin-master/js/main.js"></script>
+
+        <script src="~/table/js/jquery.min.js"></script>
+        <script src="~/table/js/popper.js"></script>
+        <script src="~/table/js/bootstrap.min.js"></script>
+        <script src="~/table/js/main.js"></script>
+      
+      
 
 </body>
 

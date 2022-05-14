@@ -15,7 +15,7 @@ using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
-    [CustomAuthorize(Roles = "quan_tri_vien")]
+    //[CustomAuthorize(Roles = "quan_tri_vien")]
     public class StaffController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
