@@ -72,6 +72,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="SharpScss, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b9d29176e3cc094c, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpScss.2.0.0\lib\netstandard2.0\SharpScss.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -190,6 +193,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Form\css\style.css" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Assets\Form\images\background.png" />
+    <Content Include="Assets\Form\images\bg-01.jpg" />
+    <Content Include="Assets\Form\images\bg-registration-form-2.jpg" />
+    <Content Include="Assets\Form\images\registration-form-2.jpg" />
+    <Content Include="Assets\Form\images\registration-form-2.png" />
     <Content Include="Assets\Login\css\main.css" />
     <Content Include="Assets\Login\css\util.css" />
     <Content Include="Assets\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -220,6 +232,7 @@
     <Content Include="Assets\Login\vendor\select2\select2.min.css" />
     <Content Include="Assets\Login\vendor\select2\select2.min.js" />
     <Content Include="Assets\Login\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Assets\Profile\datail.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -533,6 +546,15 @@
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Assets\Form\css\style.css.map" />
+    <Content Include="Assets\Form\css\style.scss" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Assets\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Assets\Form\fonts\muli\Muli-Bold.ttf" />
+    <Content Include="Assets\Form\fonts\muli\Muli-Regular.ttf" />
+    <Content Include="Assets\Form\fonts\muli\Muli-SemiBold.ttf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

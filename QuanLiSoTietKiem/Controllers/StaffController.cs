@@ -93,7 +93,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
+        public ActionResult Edit([Bind(Include = "ID,UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
         {
             if (ModelState.IsValid)
             {
