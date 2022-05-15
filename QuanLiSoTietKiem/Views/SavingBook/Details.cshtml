@@ -7,7 +7,7 @@
 
 <h2>Details</h2>
 
-<div>
+<div id="contentSavingBooking" class="contentSavingBooking" style="">
     <h4>SavingBook</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -91,37 +91,34 @@
             }
             @close
         </dd>
-
-
     </dl>
+
+    <button id="myBtn1" class="btn  btn-success" type="button" data-toggle="modal" data-target="#myModal">Tất toán sớm</button>
+
+    <a href="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" class="btn btn-primary" target="_blank">Xuất sổ tiết kiệm</a>
+
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
 </div>
-@*<div class="box-container-backdrop" style="position: fixed; top: 0; left: 0; z-index: 1040; width: 100vw; height: 100vh; background-color: #0000"></div>*@
-<div  id="myModal" class="modal">
-    <div class="modal-dialog" >
-        <div class="modal-content" style="margin-top: 175px">
-            <div class="modal-header">
-                <h5 class="modal-title">Nhắc nhở?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Bạn có muốn tất toán tài khoản này không?</p>
-            </div>
-            <div class="modal-footer">
-                <form action="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" method="post">
-                    <input type="submit" value="Đồng ý" class="btn btn-success" />
-                </form>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+<!-- The Modal -->
+<div id="myModal1" class="modal1">
+    <!-- Modal content -->
+    <div class="modal-content1">
+        <div class="d-flex justify-content-between align-content-center">
+            <h5 class="modal-title">Nhắc nhở?</h5>
+            <span class="close1">&times;</span>
+        </div>
+
+        <p>Bạn có muốn tất toán tài khoản này không?</p>
+        <div class="d-flex justify-content-end align-content-center">
+            <form class="text-right" action="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" method="post">
+                <input type="submit" value="Đồng ý" class=" btn btn-success" />
+            </form>
+            <input type="button" value="Close" class="close-3 ml-1 btn-close btn btn-danger" />
         </div>
     </div>
+
 </div>
-    
-<button class="btn  btn-success" type="button" data-toggle="modal" data-target="#myModal">Tất toán sớm</button>
 
-<a href="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" class="btn btn-primary" target="_blank">Xuất sổ tiết kiệm</a>
-
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
