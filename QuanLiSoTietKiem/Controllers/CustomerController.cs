@@ -29,7 +29,7 @@ namespace QuanLiSoTietKiem.Controllers
                 var customers = db.Customers.Where(customer => customer.IdentityNumber.Contains(search)).ToList();
                 return View(customers);
             }
-            
+
             return View(db.Customers.ToList());
         }
 
