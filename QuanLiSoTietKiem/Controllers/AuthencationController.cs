@@ -43,7 +43,6 @@ namespace QuanLiSoTietKiem.Controllers
             }
             TempData["Error"] = "Vui lòng kiểm tra lại tài khoản !";
             return RedirectToAction("Login");
-
         }
 
 
