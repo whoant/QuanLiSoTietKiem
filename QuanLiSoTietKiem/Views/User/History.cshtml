@@ -1,0 +1,99 @@
+﻿@model IEnumerable<QuanLiSoTietKiem.Models.SavingBook>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/Content/User.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/User">Khách hàng</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto dropdown-menu-lg-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @Session["FullName"]
+                    </a>
+                <div class="dropdown-menu dropdown-menu-lg-right dropdown" aria-labelledby="navbarDropdown">
+                    <form class="form-inline my-2 my-lg-0" id="info" action="/customer/profile" method="get">
+                        <a class="dropdown-item" href="/User/ChangePassword">Chỉnh sửa mật khẩu</a>
+                    </form>
+                    <div class="dropdown-divider"></div>
+                    <form class="form-inline my-2 my-lg-0" id="logout" action="/customer/auth?_method=DELETE" method="post">
+                        <a class="dropdown-item" href="/User/Logout">Đăng xuất</a>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="card mt-3">
+            <div class="card-body">
+                <h3 class="card-title text-center">Chi tiết tài khoản tiết kiệm</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="account_id">Số tài khoản</label>
+                                    <input class="form-control" id="account_id" type="text" name="account_id" value="@item.ID" disabled="">
+                                </div>
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="deposit">Số tiền gửi</label>
+                                    <input class="form-control" id="deposit" type="text" name="deposit" value="@String.Format("{0:0,0}",item.DepositAmount)&nbsp;₫" disabled="">
+                                </div>
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="interest">Lãi cuối kì</label>
+                                    <input class="form-control" id="interest" type="text" name="interest" value="@String.Format("{0:0,0}",item.InterestAmount)&nbsp;₫" disabled="">
+                                </div>
+
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="month">Kì hạn</label>
+                                    <input class="form-control" id="month" type="text" name="month" value="@item.Interest.Period.Name" disabled="">
+                                </div>
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="factor">Lãi suất</label>
+                                    <input class="form-control" id="factor" type="text" name="factor" value="@item.Interest.Factor% / năm" disabled="">
+                                </div>
+
+
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="expirationDate">Loại kì hạn</label>
+                                    <input class="form-control" id="expirationDate" type="text" name="expirationDate" value="@item.Type" disabled="">
+                                </div><div class="form-group col-lg-4 col-12">
+                                    <label for="createdAt">Ngày gửi</label>
+                                    <input class="form-control" id="createdAt" type="text" name="createdAt" value="@item.EffectedAt" disabled="">
+                                </div>
+                                <div class="form-group col-lg-4 col-12">
+                                    <label for="expirationDate">Ngày tới hạn</label>
+                                    <input class="form-control" id="expirationDate" type="text" name="expirationDate" value="@item.ExpirationAt" disabled="">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

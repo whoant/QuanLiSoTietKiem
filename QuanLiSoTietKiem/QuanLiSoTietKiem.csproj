@@ -151,6 +151,7 @@
     <Compile Include="Common\OfficeCount.cs" />
     <Compile Include="Common\UserDetail.cs" />
     <Compile Include="Controllers\AuthencationController.cs" />
+    <Compile Include="Security\CheckSessionAttribute.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\InterestController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Controllers\PeriodController.cs" />
     <Compile Include="Controllers\SavingBookController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ManageSavingContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +198,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\User.css" />
     <Content Include="CoolAdmin-master\alert.html" />
     <Content Include="CoolAdmin-master\badge.html" />
     <Content Include="CoolAdmin-master\button.html" />
@@ -685,6 +688,11 @@
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Authencation\ChangePassword.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\DetailUser.cshtml" />
+    <Content Include="Views\User\History.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
