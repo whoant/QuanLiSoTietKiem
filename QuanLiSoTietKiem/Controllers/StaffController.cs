@@ -15,7 +15,7 @@ using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
-    [CustomAuthorize(Roles = "quan_tri_vien")]
+    //[CustomAuthorize(Roles = "quan_tri_vien")]
     public class StaffController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
@@ -93,7 +93,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
+        public ActionResult Edit([Bind(Include = "ID,UserName,Name,Email,Phone,Birthday,Address,Sex,OfficeId")] Staff staff)
         {
             if (ModelState.IsValid)
             {

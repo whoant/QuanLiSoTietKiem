@@ -6,13 +6,14 @@
 }
 
 
+
 <div class="row mt-4">
 
     <div class="col-6">
         @Html.ActionLink("Thêm khách hàng mới", "Create", null, new {@class = "btn btn-primary"})
     </div>
     <div class="col-6">
-        <form action="/Customer" method="get">
+        <form style="width: 100%; padding-left: 250px;" action="/Customer" method="get">
             <div class="form-group">
                 <input class="form-control" id="search" type="text" name="search" placeholder="Nhập chứng minh thư" value=""/>
             </div>
@@ -52,10 +53,11 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Balance)
+                    @String.Format("{0:0,0}", item.Balance) đ
+
                 </td>
                 <td>
-                   @item.SavingBooks.Where(s => s.State == QuanLiSoTietKiem.Models.StateSavingBook.PENDING || s.State == QuanLiSoTietKiem.Models.StateSavingBook.PROCESSING).Sum(i => i.InterestAmount)
+                   @String.Format("{0:0,0}", item.SavingBooks.Where(s => s.State == QuanLiSoTietKiem.Models.StateSavingBook.PENDING || s.State == QuanLiSoTietKiem.Models.StateSavingBook.PROCESSING).Sum(i => i.InterestAmount)) đ
                 </td>
                 <td>
                     <a href="/Customer/@item.ID/SavingBook">

@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="d-flex justify-content-between align-content-center mb-3">
+    <h2>Bảng kì hạn</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Thêm kì hạn mới", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+</div>
+
 <table class="table">
     <tr>
         <th>

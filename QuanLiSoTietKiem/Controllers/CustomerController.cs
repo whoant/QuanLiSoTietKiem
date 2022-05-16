@@ -73,7 +73,7 @@ namespace QuanLiSoTietKiem.Controllers
                 {
                     string fileName = StringHelper.RandomString(10) + ".jpg";
                     customer.ImagePath = fileName;
-                    string path = Path.Combine(Server.MapPath("/Images"), fileName);
+                    string path = Path.Combine(Server.MapPath("~/Images"), fileName);
                     ImagePath.SaveAs(path);
                 }
                 db.Customers.Add(customer);

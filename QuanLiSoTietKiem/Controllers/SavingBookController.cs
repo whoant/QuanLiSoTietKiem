@@ -29,7 +29,7 @@ namespace QuanLiSoTietKiem.Controllers
             return View(savingBooks.ToList());
         }
 
-        // GET: SavingBook/Details/5
+        // GET: z
         public ActionResult Details(int CustomerId, int? id)
         {
             if (id == null)
