@@ -5,34 +5,43 @@
 }
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="row">
-   
-  
-        <div class="table-responsive table--no-card m-b-30">
-            <table class="table table-borderless table-striped table-earning">
-                <thead>
+<section class="">
+    <div class="container-fluid">
+        <div class="row justify-content-sm-between align-content-center" style="margin: 0px 15px 10px 0px">
+            <div class="col-md-6 text-left mb-2">
+                <h2 class="heading-section">Danh sách chức vụ</h2>
+            </div>
+            <div>
+                <button class="btn btn-outline-secondary">@Html.ActionLink("Thêm chức vụ", "Create")</button>
+            </div>
+        </div>
+        <div class="table">
+            <div class="col-md-12">
+                <table class="table table-striped">
+
                     <tr>
+
                         <th>Chức vụ</th>
                         <th>Số lượng nhân viên</th>
                     </tr>
-                </thead>
-                <tbody>
+
                     @foreach (var c in ViewData["officeCounts"] as List<QuanLiSoTietKiem.Common.OfficeCount>)
                     {
                         <tr>
-                            <td>@c.Name</td>
-                            <td>@c.Count</td>
+
+                            <td>
+                                @c.Name
+                            </td>
+                            <td>
+                                @c.Count
+                            </td>
+                          
                         </tr>
                     }
 
-
-                </tbody>
-            </table>
+                </table>
+            </div>
         </div>
-    
-   
-</div>
+    </div>
+</section>
 
