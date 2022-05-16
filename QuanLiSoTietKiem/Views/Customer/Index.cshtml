@@ -53,10 +53,11 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Balance)
+                    @String.Format("{0:0,0}", item.Balance) đ
+
                 </td>
                 <td>
-                   @item.SavingBooks.Where(s => s.State == QuanLiSoTietKiem.Models.StateSavingBook.PENDING || s.State == QuanLiSoTietKiem.Models.StateSavingBook.PROCESSING).Sum(i => i.InterestAmount)
+                   @String.Format("{0:0,0}", item.SavingBooks.Where(s => s.State == QuanLiSoTietKiem.Models.StateSavingBook.PENDING || s.State == QuanLiSoTietKiem.Models.StateSavingBook.PROCESSING).Sum(i => i.InterestAmount)) đ
                 </td>
                 <td>
                     <a href="/Customer/@item.ID/SavingBook">

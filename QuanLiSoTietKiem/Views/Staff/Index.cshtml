@@ -63,7 +63,8 @@
                                 @Html.DisplayFor(modelItem => item.Phone)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Birthday)
+                                
+                                @Convert.ToDateTime(item.Birthday).ToString("dd/MM/yyyy")
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Address)
@@ -74,7 +75,7 @@
 
                             <td class="d-flex">
                                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-success mr-1" })
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-success mr-1" })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-danger mr-1" })
                               
                             </td>
                         </tr>

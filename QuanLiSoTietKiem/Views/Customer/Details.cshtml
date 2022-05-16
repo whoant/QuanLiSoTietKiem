@@ -16,7 +16,8 @@
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Phone): <strong>@Html.DisplayFor(model => model.Phone)</strong> </div>
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Email): <strong>@Html.DisplayFor(model => model.Email)</strong> </div>
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.IdentityNumber): <strong>@Html.DisplayFor(model => model.IdentityNumber)</strong> </div>
-            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Balance): <strong>@Html.DisplayFor(model => model.Balance)</strong> </div>
+           
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Balance): <strong>@String.Format("{0:0,0}", Model.Balance)</strong> </div>
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Sex): <strong>@Html.DisplayFor(model => model.Sex)</strong> </div>
 
             <div class="profile-card-loc">
@@ -29,72 +30,7 @@
                 </span>
             </div>
 
-            <div class="profile-card-inf">
-                <div class="profile-card-inf__item">
-                    <div class="profile-card-inf__title">99999</div>
-                    <div class="profile-card-inf__txt">Followers</div>
-                </div>
-
-                <div class="profile-card-inf__item">
-                    <div class="profile-card-inf__title">99999</div>
-                    <div class="profile-card-inf__txt">Following</div>
-                </div>
-
-                <div class="profile-card-inf__item">
-                    <div class="profile-card-inf__title">99999</div>
-                    <div class="profile-card-inf__txt">Articles</div>
-                </div>
-
-                <div class="profile-card-inf__item">
-                    <div class="profile-card-inf__title">99999</div>
-                    <div class="profile-card-inf__txt">Works</div>
-                </div>
-            </div>
-
-            <div class="profile-card-social">
-                <a href="#" class="profile-card-social__item facebook" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item twitter" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item instagram" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item behance" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-behance"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item github" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-github"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item codepen" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-codepen"></use></svg>
-                    </span>
-                </a>
-
-                <a href="#" class="profile-card-social__item link" target="_blank">
-                    <span class="icon-font">
-                        <svg class="icon"><use xlink:href="#icon-link"></use></svg>
-                    </span>
-                </a>
-
-            </div>
+            
 
             <div class="profile-card-ctr">
                 @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "profile-card__button button--orange" })
