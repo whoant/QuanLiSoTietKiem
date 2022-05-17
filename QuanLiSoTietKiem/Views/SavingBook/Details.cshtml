@@ -78,12 +78,13 @@
 
         <div class="profile-card__cnt js-profile-cnt">
             <div class="profile-card__name">@Html.DisplayFor(model => model.Customer.UserName)</div>
-            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Interest.Name): <strong>@Html.DisplayFor(model => model.Interest.Name)</strong> </div>
-            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.DepositAmount): <strong>@Html.DisplayFor(model => model.DepositAmount)</strong> </div>
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Interest.Name): <strong>@Model.Interest.Period.Month % / năm</strong> </div>
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.DepositAmount): <strong>@String.Format("{0:0,0}", Model.DepositAmount) đ</strong> </div>
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.InterestAmount): <strong>@String.Format("{0:0,0}", Model.InterestAmount) đ</strong> </div>
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.Type): <strong>@Html.DisplayFor(model => model.Type)</strong> </div>
             <div class="profile-card__txt">@Html.DisplayNameFor(model => model.State): <strong>@Html.DisplayFor(model => model.State)</strong> </div>
-            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.EffectedAt): <strong>@Html.DisplayFor(model => model.EffectedAt)</strong> </div>
-            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.ExpirationAt): <strong>@Html.DisplayFor(model => model.ExpirationAt)</strong> </div>
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.EffectedAt): <strong>@Model.EffectedAt.ToString("dd/MM/yyy HH:mm")</strong> </div>
+            <div class="profile-card__txt">@Html.DisplayNameFor(model => model.ExpirationAt): <strong>@Model.ExpirationAt.ToString("dd/MM/yyy HH:mm")</strong> </div>
 
             <div class="profile-card-loc">
                 <span class="profile-card-loc__icon">
@@ -103,12 +104,19 @@
                 </span>
             </div>
 
+            @{
+                if (Model.ClosingAt == null)
+                {
+                    <div class="profile-card-ctr">
+                        <form action="/Customer/@Model.CustomerId/SavingBook/Early/@Model.ID" method="post">
+                            <input class="profile-card__button button--orange" type="submit" data-toggle="modal" value="Tất toán sớm" />
+                        </form>
 
-            <div class="profile-card-ctr">
-                <button id="myBtn1" class="profile-card__button button--orange" type="button" data-toggle="modal" data-target="#myModal">Tất toán sớm</button>
-                
-                <a href="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" class="profile-card__button button--blue" target="_blank">Xuất sổ tiết kiệm</a>
-            </div>
+                        <a href="/Customer/@Model.CustomerId/SavingBook/Export/@Model.ID" class="profile-card__button button--blue" target="_blank">Xuất sổ tiết kiệm</a>
+                    </div>
+                }
+            }
+
         </div>
 
         <div class="profile-card-message js-message">
@@ -122,7 +130,7 @@
                     </button>
 
                     <button class="profile-card__button button--gray js-message-close">
-                        Cancel
+                        Huỷ bỏ
                     </button>
                 </div>
             </form>

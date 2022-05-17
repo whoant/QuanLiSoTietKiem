@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -10,7 +11,7 @@ namespace QuanLiSoTietKiem.Helpers
 {
     public static class MailHelper
     {
-        public static async Task SendEmail(string receiver, string subject, string message)
+        public static async Task SendEmail(string receiver, string subject, string message, byte[] bytes = null)
         {
             MailAddress senderEmail = new MailAddress("vovanhoangtuan4.3@gmail.com", "Manage Saving");
             MailAddress receiverEmail = new MailAddress(receiver, "Receiver");
@@ -29,9 +30,13 @@ namespace QuanLiSoTietKiem.Helpers
             {
                 Subject = subject,
                 Body = body,
-                IsBodyHtml = true
-            };
-            
+                IsBodyHtml = true,
+        };
+            if (bytes != null)
+            {
+                mess.Attachments.Add(new Attachment(new MemoryStream(bytes), "bill.pdf"));
+            }
+
             smtp.Send(mess);
             
         }

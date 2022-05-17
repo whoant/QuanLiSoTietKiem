@@ -59,7 +59,7 @@ namespace QuanLiSoTietKiem.Controllers
             if (ModelState.IsValid)
             {
                 string password = StringHelper.RandomString(10);
-                BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>"));
+                BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>", null));
                 
                 staff.Password = Hash.ComputeSha256(password);
                 db.Staffs.Add(staff);
@@ -110,7 +110,7 @@ namespace QuanLiSoTietKiem.Controllers
         {
             Staff staff = db.Staffs.Find(id);
             string password = StringHelper.RandomString(10);
-            BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>"));
+            BackgroundJob.Enqueue(() => MailHelper.SendEmail(staff.Email, "Tạo tài khoản thành công !", $"Mật khẩu mặt định của bạn là <strong>{password}</strong>", null));
 
             staff.Password = Hash.ComputeSha256(password);
             db.Entry(staff).State = EntityState.Modified;

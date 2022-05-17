@@ -25,7 +25,8 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Thêm sổ tiết kiện", "Create", "SavingBook", "", new {@class = "btn btn-primary"})
+   
 </p>
 <table class="table">
     <tr>
@@ -53,7 +54,14 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+
+        string color = "red";
+        if (item.ClosingAt == null)
+        {
+            color = "#fff";
+        }
+
+        <tr style="background-color: @color">
             <td>
                 @Html.DisplayFor(modelItem => item.ID)
             </td>
@@ -76,7 +84,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID })
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ID })
             </td>
         </tr>
     }
