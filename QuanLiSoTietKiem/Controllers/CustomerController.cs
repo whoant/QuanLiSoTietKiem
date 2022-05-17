@@ -67,7 +67,7 @@ namespace QuanLiSoTietKiem.Controllers
                 string encryptPassword = Hash.ComputeSha256(password);
                 customer.Password = encryptPassword;
 
-                BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Tạo tài khoản thành công !", $"Chúc mừng {customer.FullName}, bạn đã tạo tài khoản thành công <br/>Mật khẩu mặt định của bạn: <strong>{password}</strong>"));
+                BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Tạo tài khoản thành công !", $"Chúc mừng {customer.FullName}, bạn đã tạo tài khoản thành công <br/>Mật khẩu mặt định của bạn: <strong>{password}</strong>", null));
 
                 if (ImagePath != null)
                 {
@@ -138,7 +138,7 @@ namespace QuanLiSoTietKiem.Controllers
             string encryptPassword = Hash.ComputeSha256(password);
             customer.Password = encryptPassword;
 
-            BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Quên mật khẩu", $"Mật khẩu mới của bạn: <strong>{password}</strong>"));
+            BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Quên mật khẩu", $"Mật khẩu mới của bạn: <strong>{password}</strong>", null));
 
             db.Entry(customer).State = EntityState.Modified;
             db.SaveChanges();

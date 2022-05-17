@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Hangfire;
 using Newtonsoft.Json;
 using QuanLiSoTietKiem.Common;
 using QuanLiSoTietKiem.DAL;
@@ -121,6 +122,53 @@ namespace QuanLiSoTietKiem.Controllers
             string html = GeneratorPdf.DepositHtml(deposit);
 
             return new FileContentResult(GeneratorPdf.Generator(html), "application/pdf");
+        }
+
+        [HttpPost]
+        public ActionResult Early(int CustomerId, int id)
+        {
+            Customer customer = db.Customers.Find(CustomerId);
+            SavingBook savingBook = db.SavingBooks.Where(s => s.ID == id && s.CustomerId == CustomerId).First();
+            if (savingBook == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            savingBook.ClosingAt = DateTime.Now;
+            savingBook.State = StateSavingBook.ON_TIME;
+            Bill bill = new Bill
+            {
+                SavingBookId= savingBook.ID,
+                Name = savingBook.Customer.FullName,
+                DepositAmount = String.Format("{0:0,0} đ", savingBook.DepositAmount),
+                InterestAmount = String.Format("{0:0,0} đ", savingBook.InterestAmount),
+                EffectedAt = savingBook.EffectedAt.ToString("dd/MM/yyy"),
+                ClosingAt = savingBook.ClosingAt?.ToString("dd/MM/yyy"),
+                Month = savingBook.Interest.Period.Month + " %/năm"
+            };
+
+            string html = GeneratorPdf.BillHtml(bill);
+
+            BackgroundJob.Enqueue(() => MailHelper.SendEmail(customer.Email, "Tất toán thành công !", $"Tất toán thành công", GeneratorPdf.Generator(html)));
+
+            db.Entry(savingBook).State = EntityState.Modified;
+            db.SaveChanges();
+
+            FormClose formClose = new FormClose
+            {
+                SavingBookId = savingBook.ID,
+                StaffId = Convert.ToInt32(Session["ID"])
+            };
+            db.FormCloses.Add(formClose);
+            db.SaveChanges();
+
+            customer.Balance += savingBook.DepositAmount;
+            db.Entry(customer).State = EntityState.Modified;
+            db.SaveChanges();
+            
+
+            TempData["Success"] = "Tất toán thành công !";
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

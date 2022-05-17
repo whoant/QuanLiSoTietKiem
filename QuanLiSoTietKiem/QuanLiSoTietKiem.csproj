@@ -149,6 +149,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\Bill.cs" />
     <Compile Include="Common\Deposit.cs" />
     <Compile Include="Common\InterestCommon.cs" />
     <Compile Include="Common\OfficeCount.cs" />
