@@ -154,22 +154,7 @@
         $("#day").html(days.join(""));
     }
 
-    async function getReport(time) {
-        try {
-            const { data } = await axios.get(`/manager/report-detail?date=${time}`);
-
-            const render = data.data.map((item, i) => renderHTML(i, item));
-            $("#tbody").empty();
-            $("#tbody").append(render.join(""));
-
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
-    function renderHTML(i, obj) {
-        return `<tr><th scope="row">${i + 1}</th><td>${obj.name}</td><td>${obj.in}</td><td>${obj.out}</td><td>${obj.diff}</td></tr>`;
-    }
+    
 
 
 </script>
