@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Tạo báo cáo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="col-xl-12 col md-12 col-12">
+        <div class="card mt-2">
+            <div class="card-body">
+                <h3 class="card-title text-center">Báo cáo</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="form-group col-lg-4 col-12">
+                                <label for="year">Năm</label>
+                                <select class="form-control" id="year" name="year">
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-4 col-12">
+                                <label for="month">Tháng</label>
+                                <select class="form-control" id="month" name="month">
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-4 col-12">
+                                <label for="day">Ngày</label>
+                                <select class="form-control" id="day" name="day">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger float-right" id="btn-confirm">Xác nhận</button><!--a.btn.btn-warning(href='#', data-toggle='modal', data-target='#update-user-modal', data-id= id) Tải báo cáo-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-body">
+                @if (ViewBag.Day != null)
+            {
+                <h3 class="card-title text-center" id="show-day">Báo cáo doanh số hoạt động ngày : @ViewBag.Day/@ViewBag.Month/@ViewBag.Year</h3>
+            }else
+            {
+            <h3 class="card-title text-center" id="show-day">Báo cáo doanh số hoạt động ngày</h3>
+            }
+                
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="2%">#</th>
+                                    <th scope="col">Loại tiết kiệm</th>
+                                    <th scope="col">Tổng thu</th>
+                                    <th scope="col">Tổng chi</th>
+                                    <th scope="col">Chênh lệch</th>
+                                </tr>
+                            </thead>
+                            @if (ViewBag.interestReceiver != null)
+                            {
+                                <tbody id="tbody">
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Nhận lãi. Gửi gốc sang kỳ hạn mới</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.interestReceiver.In) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.interestReceiver.Out) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.interestReceiver.Diff) đ</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Gửi cả gốc và lãi sang kì hạn mới</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.rolloverBoth.In) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.rolloverBoth.Out) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.rolloverBoth.Diff) đ</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Đóng tài khoản. Nhận cả gốc và lãi</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.closingAccount.In) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.closingAccount.Out) đ</td>
+                                        <td>@String.Format("{0:0,0}", ViewBag.closingAccount.Diff) đ</td>
+                                    </tr>
+                                </tbody>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const maxYear = new Date().getFullYear();
+    const monthCurrent = new Date().getMonth() + 1;
+    let monthSelect = monthCurrent;
+    let dayCurrent = new Date().getDate();
+
+    let yearCurrent = maxYear;
+    let days = [];
+
+    const years = [];
+    for (let year = maxYear; year >= 2015; year--) {
+        years.push(`<option value="${year}">${year}</option>`);
+    }
+
+    const months = [];
+    for (let month = 1; month <= 12; month++) {
+        if (month === monthSelect) {
+            months.push(`<option value="${month}" selected>${month}</option>`);
+        } else {
+            months.push(`<option value="${month}">${month}</option>`);
+        }
+    }
+
+
+    $(document).ready(function () {
+        $("#year").html(years.join(""));
+        $("#month").html(months.join(""));
+        renderDay();
+
+        $("#year").change(function () {
+            yearCurrent = $(this).val();
+            renderDay();
+        });
+
+        $("#month").change(function () {
+            monthSelect = $(this).val();
+            renderDay();
+        });
+
+        $("#btn-confirm").click(function () {
+            let dateSelected = $("#day").val();
+            if (dateSelected.length < 2) dateSelected = "0" + dateSelected;
+
+            if (monthSelect.toString().length < 2) monthSelect = "0" + monthSelect;
+
+            $("#show-day").text(`Báo cáo doanh số hoạt động ngày : ${dateSelected}/${monthSelect}/${yearCurrent}`);
+            const time = `${yearCurrent}-${monthSelect}-${dateSelected}`;
+            //getReport(time);
+            window.location.href = "/Report?day=" + dateSelected + "&month=" + monthSelect + "&year=" + yearCurrent;
+        });
+
+    });
+
+    function renderDay() {
+        const totalsDay = moment(`${yearCurrent}-${monthSelect}`, "YYYY-MM").daysInMonth();
+        days = Array.from(Array(totalsDay).keys()).map(day => `<option value="${day + 1}">${day + 1}</option>`);
+        if (yearCurrent === maxYear && monthCurrent === monthSelect) {
+            days.length = dayCurrent;
+        }
+        days = days.reverse();
+        $("#day").html(days.join(""));
+    }
+
+    
+
+
+</script>

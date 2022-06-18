@@ -153,8 +153,10 @@
     <Compile Include="Common\Deposit.cs" />
     <Compile Include="Common\InterestCommon.cs" />
     <Compile Include="Common\OfficeCount.cs" />
+    <Compile Include="Common\Report.cs" />
     <Compile Include="Common\UserDetail.cs" />
     <Compile Include="Controllers\AuthencationController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Security\CheckSessionAttribute.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -937,6 +939,7 @@
     <Content Include="Views\User\History.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
