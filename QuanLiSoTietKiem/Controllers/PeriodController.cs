@@ -12,7 +12,7 @@ using QuanLiSoTietKiem.Security;
 
 namespace QuanLiSoTietKiem.Controllers
 {
-    //[CustomAuthorize(Roles = "giam_doc")]
+    [CustomAuthorize(Roles = "giam_doc")]
     public class PeriodController : Controller
     {
         private ManageSavingContext db = new ManageSavingContext();
