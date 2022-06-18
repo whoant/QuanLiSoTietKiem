@@ -194,6 +194,7 @@
     <Compile Include="Security\CustomPrincipal.cs" />
     <Compile Include="Security\SessionPersister.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Workers\FinalSettlementWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Form\css\style.css" />
