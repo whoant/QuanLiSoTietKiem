@@ -15,7 +15,7 @@ namespace QuanLiSoTietKiem.Helpers
         {
             MailAddress senderEmail = new MailAddress("vovanhoangtuan4.3@gmail.com", "Manage Saving");
             MailAddress receiverEmail = new MailAddress(receiver, "Receiver");
-            string password = "Tt01655060501";
+            string password = "xhqgomgunvuobfll";
             string body = message;
             SmtpClient smtp = new SmtpClient
             {

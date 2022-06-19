@@ -105,7 +105,7 @@ namespace QuanLiSoTietKiem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,UserName,FullName,Phone,Birthday,IdentityNumber,ImagePath,Address,Sex,Email")] Customer customer, HttpPostedFileBase ImagePath)
+        public ActionResult Edit([Bind(Include = "ID,UserName,FullName,Phone,Birthday,IdentityNumber,Address,Sex,Email")] Customer customer, HttpPostedFileBase ImagePath)
         {
             if (ModelState.IsValid)
             {
